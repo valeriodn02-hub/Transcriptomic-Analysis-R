@@ -146,4 +146,4 @@ enrich_results <- enricher(
 # Visualization of Enrichment
 barplot(enrich_results, showCategory=10) + ggtitle("Enrichment Analysis - UpRegulated")
 
-Valerio Di Nunzio, Bioinformatics & Data Analysis [Link al tuo Profilo LinkedIn]
+Valerio Di Nunzio, Bioinformatics & Data Analysis
