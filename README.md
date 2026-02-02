@@ -1,6 +1,6 @@
 # RNA-Seq Differential Expression Analysis Pipeline
 
-## Project Overview
+# Project Overview
 This project contains an R-based pipeline for the analysis of bulk RNA-Seq data. The workflow proceeds from raw count importation (Salmon output) to functional enrichment analysis, identifying differentially expressed genes (DEGs) associated with specific experimental conditions.
 
 **Key Objectives:**
@@ -9,7 +9,7 @@ This project contains an R-based pipeline for the analysis of bulk RNA-Seq data.
 * Statistical testing for differential expression using generalized linear models.
 * Functional enrichment analysis (Gene Ontology & Hallmark pathways).
 
-## 🛠 Tools & Libraries
+# Tools & Libraries
 * **Data Handling:** `SummarizedExperiment`, `dplyr`, `openxlsx`
 * **Normalization & Statistics:** `DESeq2`, `edgeR`
 * **Visualization:** `ggplot2`, `factoextra`, `pheatmap`, `RColorBrewer`
@@ -17,7 +17,7 @@ This project contains an R-based pipeline for the analysis of bulk RNA-Seq data.
 
 ---
 
-## 1. Data Loading & Preprocessing
+# 1. Data Loading & Preprocessing
 The pipeline starts by importing Salmon transcript quantification files and converting them to gene-level counts. Data is then structured into a `DGEList` object for edgeR analysis.
 
 ```r
