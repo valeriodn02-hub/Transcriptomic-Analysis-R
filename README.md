@@ -34,6 +34,8 @@ library(edgeR)
 library(DESeq2)
 library(SummarizedExperiment)
 
+
+
 # Load gene counts (Example structure)
 # gene_counts is a SummarizedExperiment object from Salmon
 matrice_conteggi <- assay(gene_counts, "counts")
@@ -46,6 +48,8 @@ DGE_list0 <- DGEList(counts = df_conteggi, genes = df_dati_geni)
 
 # Assign groups to samples
 DGE_list0$samples$group <- as.factor(pData$groupsGep)
+
+DGE_list0$samples$flowcell <- as.factor(pData$flowcell)
 
 # Filtering low-expression genes to increase statistical power
 keep <- filterByExpr(y = DGE_list0$counts, group = DGE_list0$samples$group)
@@ -64,10 +68,13 @@ dds <- DESeqDataSetFromMatrix(countData = DGE_list0$counts,
 vst_dds <- vst(dds, blind = TRUE)
 vst_assay <- assay(vst_dds)
 
+library(limma)
+vst_assay_corrected <- removeBatchEffect(vst_assay, batch = DGE_list0$samples$flowcell)
+
 # Selection of top variable genes for PCA
-varianza_geni <- apply(vst_assay, 1, var)
+varianza_geni <- apply(vst_assay_corrected, 1, var)
 top_genes <- names(sort(varianza_geni, decreasing=TRUE))[1:500]
-pca_matrix <- t(vst_assay[top_genes, ])
+pca_matrix <- t(vst_assay_corrected[top_genes, ])
 
 # Compute PCA
 res.pca <- PCA(pca_matrix, graph = FALSE)
@@ -85,7 +92,7 @@ fviz_pca_ind(res.pca,
 Differential expression was performed using a Generalized Linear Model (GLM) approach (Likelihood Ratio Test)
 
 # Create design matrix
-design <- model.matrix(~ 0 + group, data = DGE_list0$samples)
+design <- model.matrix(~ 0 + group + flowcell, data = DGE_list0$samples)
 
 # Estimate Dispersion
 dglist <- estimateDisp(DGE_list0, design = design, robust = TRUE)
@@ -154,5 +161,7 @@ enrich_results <- enricher(
 
 # Visualization of Enrichment
 barplot(enrich_results, showCategory=10) + ggtitle("Enrichment Analysis - UpRegulated")
+
+sessionInfo()
 
 Valerio Di Nunzio, Bioinformatics & Data Analysis
