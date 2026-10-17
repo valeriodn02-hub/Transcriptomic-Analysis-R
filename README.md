@@ -21,6 +21,10 @@ This project contains an R-based pipeline for the analysis of bulk RNA-Seq data.
 * **Visualization:** `ggplot2`, `factoextra`, `pheatmap`, `RColorBrewer`
 * **Enrichment:** `clusterProfiler`
 
+## Reference for the cohort
+
+The Cancer Genome Atlas Research Network. *Comprehensive molecular characterization of gastric adenocarcinoma.* Nature 2014;513:202–209.
+
 ---
 
 # Data Loading & Processing
