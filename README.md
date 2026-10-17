@@ -1,7 +1,13 @@
 # RNA-Seq Differential Expression Analysis Pipeline
 
 # Project Overview
-This project contains an R-based pipeline for the analysis of bulk RNA-Seq data. The workflow proceeds from raw count importation (Salmon output) to functional enrichment analysis, identifying differentially expressed genes (DEGs) associated with specific experimental conditions.
+This project contains an R-based pipeline for the analysis of bulk RNA-Seq data. The workflow proceeds from raw count importation (Salmon output) to functional enrichment analysis, identifying differentially expressed genes (DEGs) associated with specific experimental conditions. 
+
+## Experimental design
+- Model: human primary stomach epithelial cells with doxycycline-inducible HUNK (Tet-On) or empty vector.
+- 24 samples = 2 constructs (HUNK / vector) × 2 doxycycline conditions (−/+) × 2 time points (24 h / 72 h) × 3 biological replicates, sequenced on 4 flowcells.
+- Main comparison: HUNK dox+ vs vector dox+ (24 h and 72 h).
+- Input: merged gene-level Salmon counts (GENCODE annotation). [Upstream steps (trimming, alignment, quantification) were run outside this repository]
 
 **Key Objectives:**
 * Data preprocessing and quality control.
