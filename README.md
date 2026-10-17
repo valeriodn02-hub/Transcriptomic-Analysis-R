@@ -17,7 +17,7 @@ This project contains an R-based pipeline for the analysis of bulk RNA-Seq data.
 
 ---
 
-# Data Loading & Preprocessing
+# Data Loading & Processing
 The pipeline starts by importing Salmon transcript quantification files and converting them to gene-level counts. Data is then structured into a `DGEList` object for edgeR analysis.
 
 ```r
