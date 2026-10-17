@@ -15,15 +15,14 @@ This project contains an R-based pipeline for the analysis of bulk RNA-Seq data.
 * Statistical testing for differential expression using generalized linear models.
 * Functional enrichment analysis (Gene Ontology & Hallmark pathways).
 
+## Reference for the cohort
+The Cancer Genome Atlas Research Network. *Comprehensive molecular characterization of gastric adenocarcinoma.* Nature 2014;513:202–209.
+
 # Tools & Libraries
 * **Data Handling:** `SummarizedExperiment`, `dplyr`, `openxlsx`
 * **Normalization & Statistics:** `DESeq2`, `edgeR`
 * **Visualization:** `ggplot2`, `factoextra`, `pheatmap`, `RColorBrewer`
 * **Enrichment:** `clusterProfiler`
-
-## Reference for the cohort
-
-The Cancer Genome Atlas Research Network. *Comprehensive molecular characterization of gastric adenocarcinoma.* Nature 2014;513:202–209.
 
 ---
 
